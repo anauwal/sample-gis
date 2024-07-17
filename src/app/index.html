@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="app-version" content="<%= htmlWebpackPlugin.options.appVersion %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NETDRONE</title>
+  
+  <!-- Bootstrap 5.3.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- SB ADMIN 2 CSS -->
+  <!-- <link type="stylesheet" href="/src/assets/style/css/sb-admin-2.css" > -->
+
+  <!-- PETAL -->
+  <!-- <script type="application/javascript" src="https://mapapi.cloud.huawei.com/mapjs/v1/api/js?callback=initMap&key=DAEDACIowRf%2Bogo1yxeyr%2BFtqKU0BgibFfePafHkroVkGrR%2B9H2yyloNgWsfA35HR%2B9%2FgLQYix3XaqgefX2HRZoStYzLq4uhMEozzg%3D%3D"></script> -->
+
+  <!-- FA ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assets/style/css/sb-admin-2.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <%
+    const procodeConfig = htmlWebpackPlugin?.options?.procodeConfig;
+    if(procodeConfig?.customComponentScriptList) {
+      for (let i = 0; i < procodeConfig?.customComponentScriptList?.length; i++) {
+      const scriptUrl = procodeConfig?.customComponentScriptList[i];
+  %>
+
+  <script src="<%= scriptUrl %>"></script>
+
+  <% }}
+
+    if(procodeConfig?.jsLibScriptList) {
+        for (let i = 0; i < procodeConfig?.jsLibScriptList?.length; i++) {
+        const jsScriptUrl = procodeConfig?.jsLibScriptList[i];
+  %>
+
+  <script src="<%= jsScriptUrl %>"></script>
+
+  <% }}
+
+    if(procodeConfig?.jsLibStyleList) {
+        for (let i = 0; i < procodeConfig?.jsLibStyleList?.length; i++) {
+        const jsStyleUrl = procodeConfig?.jsLibStyleList[i];
+  %>
+
+  <link rel="stylesheet" href="<%= jsStyleUrl %>"></link>
+
+  <% }}
+
+  %>
+
+</head>
+<body>
+  <div id="app"></div>
+  <!-- Script -->
+
+  <!-- JQUERY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Bootstrap & POPPER -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+  <!-- Google Map API -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZJZ7wB4FyP0JZDGYOqVslZJRZ0vhlDno"></script> -->
+  <!-- MAS AKBAR API -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTPieIoZ0GjgKQrLCi2FjgN0eNAiHxMTE"></script> -->
+  <!-- PETAL -->
+  <script type="application/javascript" src="https://mapapi.cloud.huawei.com/mapjs/v1/api/js?callback=initMap&key=DAEDACIowRf%2Bogo1yxeyr%2BFtqKU0BgibFfePafHkroVkGrR%2B9H2yyloNgWsfA35HR%2B9%2FgLQYix3XaqgefX2HRZoStYzLq4uhMEozzg%3D%3D"></script>
+  <!-- HERE MAPS PLUGIN-->
+  <script type="application/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+  <script type="application/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+  <script type="application/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <script type="application/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+  <script type="application/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-clustering.js"></script>
+  <script type="application/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-data.js"></script>
+  <!-- ECHARTS -->
+  <!-- <script src="../assets/js/echarts.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js" integrity="sha512-EmNxF3E6bM0Xg1zvmkeYD3HDBeGxtsG92IxFt1myNZhXdCav9MzvuH/zNMBU1DmIPN6njrhX1VTbqdJxQ2wHDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
